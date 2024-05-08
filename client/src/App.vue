@@ -1,15 +1,25 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <button v-on:click="toggle='character-viewer'">View all Character</button>
+    <button v-on:click="toggle='character-creator'">Create Character</button>
+    <CharacterViewer v-show="toggle==='character-viewer'"/>
+    <CharacterCreator v-show="toggle==='character-creator'"/>
+</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import CharacterViewer from './components/CharacterViewer.vue'
+import CharacterCreator from './components/CharacterCreator.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    CharacterViewer,
+    CharacterCreator
+  },
+  data:function () {
+    return{
+      toggle:"character-viewer"
+    }
   }
 }
 </script>
