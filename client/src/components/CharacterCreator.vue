@@ -11,17 +11,28 @@
       </select>
       <p>{{ name }}</p>
       <p>{{profession }}</p>
+      <button v-on:click="postCharacter">Create Character</button>
     </div>
   </template>
   
   <script>
+  import axios from 'axios'
   export default {
     name: 'CharacterCreator',
     data: function(){
         return{
-            name:"",
-            profession:""
+            name:null,
+            profession:null
         }
+    },
+    methods:{
+      postCharacter: function(){
+        axios
+            .post('http://localhost:3000/characters',{
+              name:this.name,
+              profession:this.profession
+            });
+      }
     }
   }
 

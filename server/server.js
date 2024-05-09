@@ -16,5 +16,3 @@ const router = require('./characters');
 server.use('/characters', router);
 
 server.listen(3000, () => console.log("Server online!"));
-
-
