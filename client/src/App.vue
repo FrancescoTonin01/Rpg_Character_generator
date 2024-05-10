@@ -26,7 +26,7 @@ export default {
   methods:{
     getCharacters: function(){
       axios
-          .get('http://localhost:3000/characters')
+          .get('http://localhost:3000/characters/')
           .then(response => (this.characters = response.data))
     }
   },
