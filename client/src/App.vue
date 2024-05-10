@@ -2,7 +2,7 @@
   <div id="app">
     <button v-on:click="toggle='character-viewer'; getCharacters()">View all Character</button>
     <button v-on:click="toggle='character-creator'">Create Character</button>
-    <CharacterViewer v-show="toggle==='character-viewer'" :characters="characters"/>
+    <CharacterViewer v-show="toggle==='character-viewer'" :characters="characters" @delete-item="deleteCharacter"/>
     <CharacterCreator v-show="toggle==='character-creator'"/>
 </div>
 </template>
@@ -20,7 +20,7 @@ export default {
   data:function () {
     return{
       toggle:"character-viewer",
-      characters:null
+      characters:Array
     }
   },
   methods:{
@@ -28,8 +28,20 @@ export default {
       axios
           .get('http://localhost:3000/characters/')
           .then(response => (this.characters = response.data))
-    }
-  },
+    },
+    deleteCharacter(id, i) {
+  axios
+    .delete(`http://localhost:3000/characters/${id}`)
+    .then(() => {
+      // Dopo aver eliminato con successo il personaggio, emetti l'evento 'delete-item'
+      // in modo che il componente CharacterViewer possa aggiornare la sua lista di personaggi.
+      this.characters.splice(i, 1)
+    })
+    .catch(error => {
+      console.error('Errore durante l\'eliminazione del personaggio:', error);
+    });
+}
+},
   mounted: function(){
     this.getCharacters();
   }
