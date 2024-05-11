@@ -62,6 +62,14 @@ export default {
   width: 100%;
 
 }
+.character-creator{
+    background: radial-gradient(circle, rgba(123, 255, 0, 0.527) 0%, rgb(44, 148, 36) 100%);
+    width: 35rem;
+    height:35rem;
+    margin:0 auto;
+    border-radius: 4rem;
+  }
+
 .buttoncontainer{
   display: flex;
   justify-content: space-between;
