@@ -57,13 +57,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 2rem;
   height:100%;
   width: 100%;
 
 }
 .character-creator{
-    background: radial-gradient(circle, rgba(123, 255, 0, 0.527) 0%, rgb(44, 148, 36) 100%);
+    background: radial-gradient(circle, rgba(123, 255, 0, 0.527) 0%, rgb(44, 167, 35) 100%);
     width: 35rem;
     height:35rem;
     margin:0 auto;

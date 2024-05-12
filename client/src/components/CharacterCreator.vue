@@ -27,7 +27,7 @@
     data: function(){
         return{
             name:null,
-            profession:null
+            profession:null,
         }
     },
     methods:{
